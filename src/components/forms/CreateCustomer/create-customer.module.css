@@ -1,0 +1,11 @@
+.form {
+	display: inline-flex;
+	flex-wrap: wrap;
+	padding: 16px;
+	max-width: 768px;
+	gap: 8px;
+}
+
+.form > * {
+	width: calc(50% - 8px);
+}

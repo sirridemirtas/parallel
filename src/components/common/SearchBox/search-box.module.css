@@ -1,0 +1,38 @@
+.wrapper {
+	display: inline-flex;
+	align-items: center;
+
+	padding-right: 16px;
+	padding-left: 8px;
+	border-radius: var(--border-radius);
+	--color: var(--theme);
+	--color-tp: #F9F9F9;
+	background-color: var(--color-tp);
+	width: 100%;
+}
+
+.wrapper:focus-within {
+	background: transparent;
+	box-shadow:0 1px 1px 0 rgba(65,69,73,0.3),
+		0 1px 3px 1px rgba(65,69,73,0.15);
+}
+
+.button:hover {
+	background-color: var(--gray-5);
+}
+
+.searchBox {
+	padding: 0;
+	padding-left: 8px;
+	flex: 1;
+	height: 42px;
+	vertical-align: middle;
+	background: transparent;
+}
+
+.searchBox::-webkit-search-decoration,
+.searchBox::-webkit-search-cancel-button,
+.searchBox::-webkit-search-results-button,
+.searchBox::-webkit-search-results-decoration {
+	-webkit-appearance:none;
+}

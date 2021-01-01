@@ -1,0 +1,10 @@
+.wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 512px;
+	min-width: 256px;
+}
+
+.wrapper:focus-within .suggestions {
+	visibility: visible;
+}

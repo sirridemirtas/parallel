@@ -1,0 +1,76 @@
+.textField {
+	width: 100%;
+	height: 36px;
+	border: var(--border);
+	border-radius: var(--border-radius);
+	padding: 0 16px;
+	vertical-align: middle;
+	--color: var(--theme);
+	--color-tp: var(--theme-tint-10);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: 24px 24px;
+}
+
+.textField:focus {
+	border-color: var(--color);
+	box-shadow: 0 0 0 3px var(--color-tp);
+}
+
+.wrapper {
+	display: inline-flex;
+	align-items: stretch;
+	justify-content: stretch;
+	flex-wrap: nowrap;
+	position: relative;
+}
+
+.label {
+	background-color: var(--gray-6);
+	margin: 0;
+	padding: 0 12px;
+	border-top-left-radius: var(--border-radius);
+	border-bottom-left-radius: var(--border-radius);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 48px;
+}
+
+.wrapper .textField {
+	flex: 1;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.textFieldWrapper:before {
+	content: attr(title);
+	display: block;
+	position: absolute;
+	font-size: 12px;
+	margin-top: -7px;
+	margin-left: 12px;
+	padding: 0 8px;
+	background: var(--bg);
+}
+
+.placeholder {
+	position: absolute;
+}
+
+
+.textField:required {
+	/*--color: var(--red);
+	--color-tp: var(--red-tp);*/
+}
+
+.textField:invalid:not(:placeholder-shown) {
+	--color: var(--red);
+	--color-tp: var(--red-tp);
+	_background-image: url(../../../icons/heart.svg);
+}
+
+.textField:valid {
+	/*--color: var(--green);
+	--color-tp: var(--green-tp);*/
+}

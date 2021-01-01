@@ -1,0 +1,38 @@
+.detail {
+	display: flex;
+	align-items: top;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.detail > *:not(:last-child) {
+	margin-right: 8px;
+	margin-bottom: 8px;
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	width: auto;
+	height: 44px;
+	padding: 0 12px;
+	padding-right: 16px;
+	font-size: 14px;
+	font-weight: 500;
+	border: var(--border);
+	border-radius: var(--border-radius);
+	text-decoration: none;
+	color: inherit;
+}
+
+.button:hover {
+	background-color: rgba(128, 128, 128, .1);
+}
+
+.button svg {
+	margin-right: 12px;
+	font-size: 24px;
+}
+

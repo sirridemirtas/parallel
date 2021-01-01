@@ -1,0 +1,16 @@
+.wrapper {
+	position: absolute;
+	width: 100%;
+	background-color: var(--bg);
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow);
+	visibility: hidden;
+
+	_border: var(--border);
+	_border-top-left-radius: 0;
+	_border-top-right-radius: 0;
+}
+
+.wrapper:empty {
+	visibility: hidden;
+}

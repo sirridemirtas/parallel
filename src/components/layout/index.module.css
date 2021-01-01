@@ -1,0 +1,16 @@
+.layout {
+	_display: grid;
+	_grid-template-columns: 256px 1fr;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: flex-start;
+	width: 100%;
+	max-width: 1920px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+@media screen and (min-width: 960px) {
+	
+}

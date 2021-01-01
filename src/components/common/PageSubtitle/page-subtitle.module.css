@@ -1,0 +1,9 @@
+.pageSubtitle {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: var(--gray);
+	font-weight: 500;
+	display: flex;
+	height: 48px;
+	align-items: center;
+}

@@ -1,0 +1,13 @@
+.actionLink {
+	font-size: 17px;
+	--color: var(--theme);
+	--color-tp: var(--theme-tint-10);
+	color: var(--color);
+	text-decoration: none;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.actionLink:hover {
+	text-decoration: underline;
+}
