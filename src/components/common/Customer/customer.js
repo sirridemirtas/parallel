@@ -61,7 +61,6 @@ function Customer({ children, className, ...props }) {
 
 					<PageSubtitle>HESAPLAR</PageSubtitle>
 
-					<CreateCustomer />
 
 					{/* <Button onClick={() => toggleModal()}>Modal</Button>
 			<Modal visibility={modalVisibility}>

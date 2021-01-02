@@ -9,4 +9,5 @@
 .yellow {--color: var(--yellow) !important; --color-tp: var(--yellow-tp) !important;}
 .gray {--color: var(--gray) !important; --color-tp: var(--gray-6) !important;}
 .black {--color: var(--text) !important; --color-tp: var(--gray-3) !important;}
+.theme {--color: var(--theme) !important; --color-tp: var(--theme-tint-10) !important;}
 

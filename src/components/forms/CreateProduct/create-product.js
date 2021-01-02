@@ -5,7 +5,7 @@ import TextField from "../../ui/TextField"
 import Spinner from "../../ui/Spinner"
 import styles from "./create-customer.module.css"
 
-function CreateCustomer({ visibility }) {
+function CreateProduct({ visibility }) {
 	const [formVisibility, setVisibility] = React.useState(visibility)
 	const [loading, setLoading] = React.useState(false)
 
@@ -23,7 +23,7 @@ function CreateCustomer({ visibility }) {
 	return (
 		<Modal visibility={formVisibility}>
 			<form onSubmit={(event) => submit(event)}>
-				<ModalTitle>Müşteri Oluştur</ModalTitle>
+				<ModalTitle>Ürün Oluştur</ModalTitle>
 
 				<ModalContent className={styles.form}>
 					<label>
@@ -80,4 +80,4 @@ function CreateCustomer({ visibility }) {
 	)
 }
 
-export default CreateCustomer
+export default CreateProduct

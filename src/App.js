@@ -1,50 +1,34 @@
-import React, { useState, useEffect } from "react"
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route
-} from "react-router-dom"
-import AppContext from "./store/AppContext"
+import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import AppProvider from "./store/App"
 import "./styles/index.css"
 import Layout from "./components/layout"
 import Customer from "./components/common/Customer"
 import Product from "./components/common/Product"
 import ComponentsPreview from "./components/common/ComponentsPreview"
+import CreateCustomer from "./components/forms/CreateCustomer"
 
 function App() {
-	const [theme, setTheme] = useState(null)
-
-	useEffect(() => {
-		const theme = localStorage.getItem("theme") || "light";
-		setTheme(theme)
-	}, [])
-
-	const switchTheme = () => {
-		setTheme(theme === "light" ? "dark" : "light")
-		localStorage.setItem("theme", theme)
-		document.body.classList.toggle("dark")
-	}
-
 	return (
-		<AppContext.Provider value={{ theme, switchTheme }}>
+		<AppProvider>
 			<Router>
 				<Layout>
 					<Switch>
-
-						<Route path="/customers/:id" children={<Customer />} />
-
-						<Route path="/product">
+						<Route
+							path="/customers/:id"
+							children={<Customer />}
+						/>
+						<Route path="/products">
 							<Product />
 						</Route>
-
 						<Route path="/components">
 							<ComponentsPreview />
 						</Route>
-
 					</Switch>
+					<CreateCustomer visibility={false} />
 				</Layout >
 			</Router>
-		</AppContext.Provider>
+		</AppProvider>
 	)
 }
 
