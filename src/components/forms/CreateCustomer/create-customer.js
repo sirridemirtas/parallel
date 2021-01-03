@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
+import { AppContext } from "../../../store/App"
+import { isTurkishId } from "../../../helpers"
 import Modal, { ModalTitle, ModalContent, ModalActions, ModalButton } from "../../ui/Modal"
 import Textarea from "../../ui/TextArea"
 import TextField from "../../ui/TextField"
@@ -6,10 +8,9 @@ import Spinner from "../../ui/Spinner"
 import styles from "./create-customer.module.css"
 
 function CreateCustomer({ visibility }) {
-	const [formVisibility, setVisibility] = React.useState(visibility)
-	const [loading, setLoading] = React.useState(false)
+	const store = useContext(AppContext)
 
-	const toggleVisibility = () => (setVisibility(!formVisibility))
+	const [loading, setLoading] = React.useState(false)
 
 	const submit = (event) => {
 		event.preventDefault()
@@ -17,45 +18,53 @@ function CreateCustomer({ visibility }) {
 
 		setInterval(() => {
 			setLoading(false)
-		}, 2000);
+		}, 3000);
 	}
 
 	return (
-		<Modal visibility={formVisibility}>
+		<Modal visibility={store.state.modals.createCustomer}>
 			<form onSubmit={(event) => submit(event)}>
 				<ModalTitle>Müşteri Oluştur</ModalTitle>
 
 				<ModalContent className={styles.form}>
 					<label>
 						Ad
-						<TextField placeholder="Ad" required autoFocus />
+						<TextField name="name" placeholder="Ad" required autoFocus />
 					</label>
 
 					<label>
 						Soyad
-						<TextField placeholder="Soyad" required />
+						<TextField name="surname" placeholder="Soyad" required />
 					</label>
 
 					<label>
 						Telefon
-						<TextField type="number" placeholder="Telefon" />
+						<TextField name="phone" type="number" placeholder="Telefon" />
 					</label>
 
 					<label>TC Kimlik No
 						<TextField
-							type="number"
+							name="turkishId"
+							type="text"
 							placeholder="TC Kimlik No"
 							minLength="11" maxLength="11"
 							pattern="[1-9][0-9]{9}[02468]"
+							onInput={(event) => {
+								if (!isTurkishId(event.target.value)) {
+									event.target.setCustomValidity("Geçersiz TC Kimlik Numarası!")
+								} else {
+									event.target.setCustomValidity("")
+								}
+							}}
 						/>
 					</label>
 
 					<label>Adres
-						<Textarea placeholder="Adres" />
+						<Textarea name="address" placeholder="Adres" />
 					</label>
 
 					<label>Notlar
-						<Textarea placeholder="Notlar" />
+						<Textarea name="notes" placeholder="Notlar" />
 					</label>
 
 				</ModalContent>
@@ -72,7 +81,7 @@ function CreateCustomer({ visibility }) {
 					<ModalButton
 						disabled={loading}
 						type="reset"
-						onClick={() => toggleVisibility()}
+						onClick={() => store.dispatch({ type: "TOGGLE_CREATE_CUSTOMER_MODAL" })}
 					>kapat</ModalButton>
 				</ModalActions>
 			</form>

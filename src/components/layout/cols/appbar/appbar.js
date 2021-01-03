@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import cn from "classnames"
 //import useBodyScrollPosition from "../../../../hooks/useBodyScrollPosition"
 import Dropdown from "../../../common/Dropdown"
@@ -7,9 +7,12 @@ import IconButton from "../../../ui/IconButton"
 import { EllipsisHorizontal, PersonAdd, Cube, Document, Wallet } from "../../../icons"
 import SwitchTheme from "../../../common/SwitchTheme"
 import styles from "./appbar.module.css"
+import { AppContext } from "../../../../store/App"
 
 function Appbar() {
 	//const scroll = useBodyScrollPosition()
+	const store = useContext(AppContext)
+
 	return (
 		<div className={cn(
 			styles.appbar,
@@ -29,8 +32,9 @@ function Appbar() {
 							{
 								text: "Müşteri oluştur",
 								icon: <PersonAdd />,
-								href: "/customers/4",
-								color: "red"
+								onClick: () => store.dispatch(
+									{ type: "TOGGLE_CREATE_CUSTOMER_MODAL" }
+								)
 							},
 							{
 								text: "Gider ekle",
@@ -38,7 +42,10 @@ function Appbar() {
 							},
 							{
 								text: "Ürün oluştur",
-								icon: <Cube />
+								icon: <Cube />,
+								onClick: () => store.dispatch(
+									{ type: "TOGGLE_CREATE_PRODUCT_MODAL" }
+								)
 							},
 							{
 								text: "Senet oluştur",

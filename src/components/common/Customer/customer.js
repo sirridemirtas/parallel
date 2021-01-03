@@ -8,7 +8,7 @@ import ActionLink, { ActionLinks } from "../ActionLink"
 import styles from "./customer.module.css"
 import PageSubtitle from "../PageSubtitle"
 
-import CreateCustomer from "../../forms/CreateCustomer"
+//import CreateCustomer from "../../forms/CreateCustomer"
 
 /* import Modal, { ModalTitle, ModalContent, ModalActions, ModalButton } from "../../ui/Modal";
 import Button from "../../ui/Button";

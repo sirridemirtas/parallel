@@ -1,15 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
+import { AppContext } from "../../../store/App"
 import Modal, { ModalTitle, ModalContent, ModalActions, ModalButton } from "../../ui/Modal"
 import Textarea from "../../ui/TextArea"
 import TextField from "../../ui/TextField"
+import InputGroup from "../../ui/InputGroup"
 import Spinner from "../../ui/Spinner"
-import styles from "./create-customer.module.css"
+import Checkbox from "../../ui/Checkbox"
+import styles from "../CreateCustomer/create-customer.module.css"
 
 function CreateProduct({ visibility }) {
-	const [formVisibility, setVisibility] = React.useState(visibility)
+	const store = useContext(AppContext)
 	const [loading, setLoading] = React.useState(false)
-
-	const toggleVisibility = () => (setVisibility(!formVisibility))
 
 	const submit = (event) => {
 		event.preventDefault()
@@ -17,45 +18,54 @@ function CreateProduct({ visibility }) {
 
 		setInterval(() => {
 			setLoading(false)
-		}, 2000);
+		}, 3000);
 	}
 
 	return (
-		<Modal visibility={formVisibility}>
+		<Modal visibility={store.state.modals.createProduct}>
 			<form onSubmit={(event) => submit(event)}>
 				<ModalTitle>Ürün Oluştur</ModalTitle>
 
 				<ModalContent className={styles.form}>
 					<label>
-						Ad
-						<TextField placeholder="Ad" required autoFocus />
+						Ürün İsmi
+						<TextField name="name" placeholder="Ürün İsmi" required />
 					</label>
 
 					<label>
-						Soyad
-						<TextField placeholder="Soyad" required />
+						Ürün Kodu
+						<TextField name="sku" placeholder="Ürün Kodu" required />
 					</label>
 
 					<label>
-						Telefon
-						<TextField type="number" placeholder="Telefon" />
+						Ürün Stoku / Birimi
+						<InputGroup items={[
+							<TextField name="stock" key="1" type="number" placeholder="Stoku" required />,
+							<TextField name="unit" key="2" placeholder="Birim" required />
+						]} />
 					</label>
 
-					<label>TC Kimlik No
-						<TextField
-							type="number"
-							placeholder="TC Kimlik No"
-							minLength="11" maxLength="11"
-							pattern="[1-9][0-9]{9}[02468]"
-						/>
+					<label>
+						Kategori
+						<TextField name="category" placeholder="Kategori" required />
 					</label>
 
-					<label>Adres
-						<Textarea placeholder="Adres" />
+					<label>
+						Alış Fiyatı
+						<TextField name="costPrice" type="number" placeholder="Alış Fiyatı" required />
 					</label>
 
-					<label>Notlar
-						<Textarea placeholder="Notlar" />
+					<label>
+						Satış Fiyatı
+						<TextField name="salePrice" type="number" placeholder="Satış Fiyatı" required />
+					</label>
+
+					<label>Açıklama
+						<Textarea name="description" placeholder="Açıklama" />
+					</label>
+
+					<label>
+						<Checkbox color="theme">Aktif</Checkbox>
 					</label>
 
 				</ModalContent>
@@ -72,7 +82,7 @@ function CreateProduct({ visibility }) {
 					<ModalButton
 						disabled={loading}
 						type="reset"
-						onClick={() => toggleVisibility()}
+						onClick={() => store.dispatch({ type: "TOGGLE_CREATE_PRODUCT_MODAL" })}
 					>kapat</ModalButton>
 				</ModalActions>
 			</form>

@@ -38,7 +38,7 @@ function Customer({ children, className, ...props }) {
 				type="email"
 				required
 				label={"e-mail"}
-				_color={"blue"}
+				color={"blue"}
 			/>
 
 

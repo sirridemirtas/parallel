@@ -1,12 +1,13 @@
 import React from "react"
 import cn from "classnames"
+import styles from "./index.module.css"
+import Appbar from "./cols/appbar"
 import Sidebar from './cols/sidebar'
 import Main from './cols/main'
-import Appbar from "./cols/appbar"
-import styles from "./index.module.css"
+import CreateCustomer from "../forms/CreateCustomer"
+import CreateProduct from "../forms/CreateProduct"
 
 function Layout({ children }) {
-
 	return (
 		<div className={cn(styles.layout)}>
 			<Sidebar />
@@ -14,6 +15,8 @@ function Layout({ children }) {
 				<Appbar />
 				{children}
 			</Main>
+			<CreateCustomer />
+			<CreateProduct />
 		</div>
 	)
 }

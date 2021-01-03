@@ -1,0 +1,1 @@
+export { isTurkishId } from "./turkish-id-checker"

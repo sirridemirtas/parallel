@@ -11,6 +11,22 @@ export const reducer = (state, action) => {
 		case "SET_TITLE":
 			return { ...state, title: payload }
 
+		case "TOGGLE_CREATE_CUSTOMER_MODAL":
+			return {
+				...state, modals: {
+					...state.modals,
+					createCustomer: (!state.modals.createCustomer)
+				}
+			}
+
+		case "TOGGLE_CREATE_PRODUCT_MODAL":
+			return {
+				...state, modals: {
+					...state.modals,
+					createProduct: (!state.modals.createProduct)
+				}
+			}
+
 		default:
 			return state
 	}

@@ -3,8 +3,7 @@
 }
 
 .wrapper {
-	text-align: center;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 }
@@ -12,5 +11,5 @@
 .spinner {
 	font-size: 24px;
 	animation: spinner .6s linear infinite;
-	margin: 1em;
+	_margin: 1em;
 }

@@ -9,7 +9,7 @@ const AppProvider = ({ ...props }) => {
 		title: "Parallel React",
 		theme: (localStorage.getItem("theme") || "light"),
 		modals: {
-			createCustomer: true,
+			createCustomer: false,
 			crerateProduct: false
 		}
 	}
