@@ -1,9 +1,14 @@
 export const actions = {
-	switchTheme: (theme_) => {
-		const theme = theme_ === "light" ? "dark" : "light"
-		localStorage.setItem("theme", theme)
-		document.body.classList.toggle("dark")
-		console.log(theme)
+	switchTheme: (t) => {
+		const theme = t === "light" ? "dark" : "light"
+
+		//localStorage.setItem("theme", theme)
+		//document.body.classList.toggle("dark")
+		if (theme === "light")
+			document.body.classList.remove("dark")
+		else
+			document.body.classList.add("dark")
+
 		return theme
 	}
 }

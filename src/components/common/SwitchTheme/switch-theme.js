@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import cn from "classnames"
 import { AppContext } from "../../../store/App"
 import IconButton from "../../ui/IconButton"
-import { Moon, MoonFill } from "../../icons"
+import { Moon, Sunny } from "../../icons"
 import styles from "./switch-theme.module.css"
 
 function SwitchTheme({ children, className, ...props }) {
@@ -11,7 +11,7 @@ function SwitchTheme({ children, className, ...props }) {
 	return (
 		<IconButton color="theme"
 			onClick={() => store.dispatch({ type: "SWITCH_THEME" })}
-			icon={store.state.theme === "light" ? <MoonFill /> : <Moon />}
+			icon={store.state.theme !== "light" ? <Sunny /> : <Moon />}
 			className={cn(styles.switchTheme, className)}
 			{...props}
 		/>

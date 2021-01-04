@@ -3,8 +3,6 @@
 	position: sticky;
 	top: 0;
 	z-index: 20;
-	background-color: var(--bg-secondary);
-	background-color: inherit;
 	backdrop-filter:blur(20px);
 	border-left: var(--border);
 	overflow: none;

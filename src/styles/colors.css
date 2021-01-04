@@ -1,13 +1,12 @@
-.blue {--color: var(--blue) !important; --color-tp: var(--blue-tp) !important;}
-.green {--color: var(--green) !important; --color-tp: var(--green-tp) !important;}
-.indigo {--color: var(--indigo) !important; --color-tp: var(--indigo-tp) !important;}
-.orange {--color: var(--orange) !important; --color-tp: var(--orange-tp) !important;}
-.pink {--color: var(--pink) !important; --color-tp: var(--pink-tp) !important;}
-.purple {--color: var(--purple) !important; --color-tp: var(--purple-tp) !important;}
-.red {--color: var(--red) !important; --color-tp: var(--red-tp) !important;}
-.tealBlue {--color: var(--teal-blue) !important; --color-tp: var(--teal-blue-tp) !important;}
-.yellow {--color: var(--yellow) !important; --color-tp: var(--yellow-tp) !important;}
-.gray {--color: var(--gray) !important; --color-tp: var(--gray-6) !important;}
-.black {--color: var(--text) !important; --color-tp: var(--gray-3) !important;}
-.theme {--color: var(--theme) !important; --color-tp: var(--theme-tint-10) !important;}
-
+.blue		 {--color: var(--blue) 		!important; --color-tp: var(--blue-tint-10) 	!important}
+.green		 {--color: var(--green) 	!important; --color-tp: var(--green-tint-10) 	!important}
+.indigo		 {--color: var(--indigo) 	!important; --color-tp: var(--indigo-tint-10) 	!important}
+.orange		 {--color: var(--orange) 	!important; --color-tp: var(--orange-tint-10) 	!important}
+.pink		 {--color: var(--pink) 		!important; --color-tp: var(--pink-tint-10) 	!important}
+.purple		 {--color: var(--purple) 	!important; --color-tp: var(--purple-tint-10) 	!important}
+.red		 {--color: var(--red) 		!important; --color-tp: var(--red-tint-10) 		!important}
+.teal		 {--color: var(--teal) 		!important; --color-tp: var(--teal-tint-10)		!important}
+.yellow		 {--color: var(--yellow) 	!important; --color-tp: var(--yellow-tint-10) 	!important}
+.gray		 {--color: var(--gray) 		!important; --color-tp: var(--gray-6) 			!important}
+.black		 {--color: var(--text-color)!important; --color-tp: var(--gray-3) 			!important}
+.theme		 {--color: var(--theme) 	!important; --color-tp: var(--theme-tint-10) 	!important}

@@ -32,6 +32,8 @@
 }
 
 .extra input {
+	background-color: var(--bg-color);
+	color: var(--text-color);
 	padding: 12px 16px;
 	padding-left: 40px;
 	border-bottom: var(--border);
@@ -51,6 +53,8 @@
 }
 
 .extra select {
+	background-color: var(--bg-color);
+	color: var(--text-color);
 	border-bottom: var(--border);
 	width: 100%;
 	font-size: 14px;

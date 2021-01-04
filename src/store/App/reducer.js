@@ -9,6 +9,7 @@ export const reducer = (state, action) => {
 			return { ...state, theme: actions.switchTheme(state.theme) }
 
 		case "SET_TITLE":
+			document.title = payload
 			return { ...state, title: payload }
 
 		case "TOGGLE_CREATE_CUSTOMER_MODAL":

@@ -7,9 +7,8 @@
 	vertical-align: middle;
 	--color: var(--theme);
 	--color-tp: var(--theme-tint-10);
-	background-repeat: no-repeat;
-	background-position: left;
-	background-size: 24px 24px;
+	color: var(--text-color);
+	background-color: var(--bg-color);
 }
 
 .textField:focus {
@@ -51,26 +50,16 @@
 	margin-top: -7px;
 	margin-left: 12px;
 	padding: 0 8px;
-	background: var(--bg);
+	background: var(--bg-color);
 }
 
 .placeholder {
 	position: absolute;
 }
 
-
-.textField:required {
-	/*--color: var(--red);
-	--color-tp: var(--red-tp);*/
-}
-
 .textField:invalid:not(:placeholder-shown) {
 	--color: var(--red);
-	--color-tp: var(--red-tp);
-	_background-image: url(../../../icons/heart.svg);
+	--color-tp: var(--red-tint-10);
 }
 
-.textField:valid {
-	/*--color: var(--green);
-	--color-tp: var(--green-tp);*/
-}
+/*.textField:required {} .textField:valid {}*/

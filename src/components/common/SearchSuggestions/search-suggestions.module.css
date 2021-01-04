@@ -1,7 +1,7 @@
 .wrapper {
 	position: absolute;
 	width: 100%;
-	background-color: var(--bg);
+	background-color: var(--bg-color);
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
 	visibility: hidden;

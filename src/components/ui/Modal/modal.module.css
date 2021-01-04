@@ -19,7 +19,7 @@
 .modal {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--bg);
+	background-color: var(--bg-color);
 	border-radius: var(--border-radius);
 	min-width: 280px;
 	max-height: 100vh;

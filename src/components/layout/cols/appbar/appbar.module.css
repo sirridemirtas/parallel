@@ -8,17 +8,11 @@
 	position: sticky;
 	top: 0;
 	z-index: 10;
-
 	padding: 0 16px;
 	gap: 8px;
-	
 	color: var(--text-color);
 	border-bottom: var(--border);
-	background-color: rgba(255, 255, 255, .92);
-	background: var(--bg);
-	background-color: hsla(0,0%,100%,.95);
-	-webkit-backdrop-filter: var(--backdrop-filter);
-	backdrop-filter: var(--backdrop-filter);
+	background-color: var(--bg-color);
 }
 
 .shadow {
