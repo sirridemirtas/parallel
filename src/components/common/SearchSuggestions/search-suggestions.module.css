@@ -5,12 +5,14 @@
 	border-radius: var(--border-radius);
 	box-shadow: var(--shadow);
 	visibility: hidden;
-
-	_border: var(--border);
-	_border-top-left-radius: 0;
-	_border-top-right-radius: 0;
+	
+	box-shadow: var(--gray-5) 0px 0px 0px 1px, var(--gray-5) 0px 4px 11px;
+	margin-bottom: 8px;
+	margin-top: 8px;
+	z-index: 1;
 }
 
 .wrapper:empty {
 	visibility: hidden;
 }
+

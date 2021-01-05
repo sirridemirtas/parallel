@@ -9,6 +9,12 @@ import ComponentsPreview from "./components/common/ComponentsPreview"
 
 function App() {
 
+	React.useEffect(() => {
+		if (localStorage.getItem("theme") === "dark") {
+			document.body.classList.add("dark")
+		}
+	}, [])
+
 	return (
 		<AppProvider>
 			<Router>

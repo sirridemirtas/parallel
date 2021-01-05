@@ -5,17 +5,17 @@ import List from "../List";
 //import Button from "../../ui/Button";
 
 function Dropdown({ items, button, align, ...props }) {
-	const [visibility, setVisibility] = React.useState(false);
+	//const [visibility, setVisibility] = React.useState(false);
 
 	const Button = React.cloneElement(button, {
 		...button.props,
-		onClick: () => setVisibility(!visibility),
-		/* onBlur: () => setVisibility(false), */
-		//onClick={() => setVisibility(true)}
+		/* onClick: () => setVisibility(!visibility),
+		onBlur: () => setVisibility(false), 
+		//onClick={() => setVisibility(true)}*/
 		className: styles.button
 	})
 
-	items = items.map(item => {
+	/* items = items.map(item => {
 		return {
 			...item,
 			onClick: (() => {
@@ -25,7 +25,7 @@ function Dropdown({ items, button, align, ...props }) {
 				}
 			})
 		}
-	})
+	}) */
 
 	return (
 		<div
@@ -38,7 +38,7 @@ function Dropdown({ items, button, align, ...props }) {
 			{Button}
 			<div className={cn(
 				styles.list,
-				visibility || styles.hide,
+				//visibility || styles.hide,
 				align ? styles[align] : styles.bottomLeft
 			)}>
 				<List items={items} />

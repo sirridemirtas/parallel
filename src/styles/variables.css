@@ -114,4 +114,7 @@ body.dark {
 	--border-color: rgba(128 ,128, 128, .1);
 	--border: 1px solid var(--border-color);
 	/** Borders **/
+
+	-webkit-font-smoothing: initial;
+	-moz-osx-font-smoothing: initial;
 }

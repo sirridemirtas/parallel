@@ -21,18 +21,12 @@ function Customer({ children, className, ...props }) {
 			gap: "10px"
 		}}>
 
-
-
 			<InputGroup items={[
-				<Button variant={"outlined"}><Location />Deneme 1</Button>,
-				<Button variant={"outlined"} color="red"><HeartFill />Deneme 1</Button>,
-				<TextField placeholder="textField" />,
-				<Button variant={"outlined"}>Deneme 3</Button>
+				<Button key="1" variant={"outlined"}><Location />Deneme 1</Button>,
+				<Button key="2" variant={"outlined"} color="red"><HeartFill />Deneme 1</Button>,
+				<TextField key="3" placeholder="textField" />,
+				<Button key="4" variant={"outlined"}>Deneme 3</Button>
 			]} />
-
-
-
-
 
 			<TextField placeholder="textField"
 				type="email"
@@ -40,7 +34,6 @@ function Customer({ children, className, ...props }) {
 				label={"e-mail"}
 				color={"blue"}
 			/>
-
 
 			<Dropdown
 				align="bottomRight"
@@ -61,7 +54,6 @@ function Customer({ children, className, ...props }) {
 					}
 				]}
 			/>
-
 
 			<Table />
 

@@ -1,29 +1,40 @@
 .wrapper {
 	display: inline-flex;
 	align-items: center;
-
 	padding-right: 16px;
 	padding-left: 8px;
 	border-radius: var(--border-radius);
 	--color: var(--theme);
 	--color-tp: var(--theme-tint-10);
-	background-color: var(--color-tp);
-	background-color: rgba(128, 128, 128, .1);
+	_background-color: var(--color-tp);
+	background-color: rgba(128, 128, 128, .05);
+	border: var(--border);
 	color: var(--text-color);
 	width: 100%;
 }
 
 .wrapper:focus-within {
 	background: transparent;
-	box-shadow:0 1px 1px 0 rgba(65,69,73,0.3),
-		0 1px 3px 1px rgba(65,69,73,0.15);
+	border-color: transparent;
+	box-shadow: 
+		rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, 
+		var(--theme) 0px 0px 0px 2px;
 }
 
 .button:hover {
 	background-color: var(--gray-5);
 }
 
+.wrapper:focus-within .button{
+	--color: var(--theme);
+}
+
+.wrapper:focus-within .button:hover{
+	background-color: var(--theme-tint-10);
+}
+
 .searchBox {
+	font-size: inherit;
 	padding: 0;
 	padding-left: 8px;
 	flex: 1;
