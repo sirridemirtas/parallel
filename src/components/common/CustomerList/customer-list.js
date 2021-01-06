@@ -1,8 +1,9 @@
 import React from "react"
 import { useLocation } from "react-router-dom"
+import Select from "../../ui/Select"
 import List from "../List"
-/* import { Search } from "../../icons"
-import styles from "./customer-list.module.css" */
+/* import { Search } from "../../icons"*/
+import styles from "./customer-list.module.css"
 
 function CustomerList({ cluster, className, ...props }) {
 	const location = useLocation()
@@ -24,11 +25,20 @@ function CustomerList({ cluster, className, ...props }) {
 
 	return (
 		<div {...props}>
-			<select>
-				<option>Borcu Olanlar</option>
-				<option>Geciktirenler</option>
-				<option>Tüm Müşteriler</option>
-			</select>
+			<Select className={styles.select} name="cluster" options={[
+				{
+					text: "Borcu Olanlar",
+					value: "borclular"
+				},
+				{
+					text: "Geciktirenler",
+					value: "geciktirenler"
+				},
+				{
+					text: "Tüm Müşteriler",
+					value: "all"
+				}
+			]} onInput={(event) => console.log("event.target.value")} />
 			<input
 				type="text"
 				placeholder="müşterilerde ara"

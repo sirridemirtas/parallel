@@ -1,16 +1,25 @@
-import React, { useEffect, useReducer } from "react"
+import React, { useReducer, useRef } from "react"
 import cn from "classnames"
 import { ChevronDown, ChevronUp } from "../../icons"
 import List from "../../common/List"
 import styles from "./select.module.css"
 
-function Select({ items, className, align, size, color, ...props }) {
+function Select({ options = [], placeholder, className, align, size, color, ...props }) {
 
 	const reducer = (state, action) => {
 		switch (action.type) {
-
-			case "SET_LABEL":
-				return { ...state, label: action.payload }
+			case "SELECT_OPTION":
+				return {
+					...state, options: state.options.map((item, i) => {
+						if (item.value === action.value) {
+							state.label = item.text
+							state.value = item.value
+							return { ...item, selected: true }
+						} else {
+							return { ...item, selected: false }
+						}
+					})
+				}
 
 			default:
 				return state
@@ -18,51 +27,44 @@ function Select({ items, className, align, size, color, ...props }) {
 	}
 
 	const initialState = {
-		items: (
-			items
-				? items/* items.map((item, i) => {
-					if (!item.activated) {
-						item.onClick = () => {
-
-						}
-					} else {
-						item.activated = true
-					}
-				}) */
-				: []),
+		label: placeholder || "Seçenekler",
 		value: "",
-		label: "Seçenekler"
+		options: options
+	}
+
+	for (let option of initialState.options) {
+		if (option.selected) {
+			initialState.label = option.text
+			initialState.value = option.value
+		}
+
+		option.onClick = () => {
+			dispatch({ type: "SELECT_OPTION", value: option.value })
+			//clickHandler()
+		}
 	}
 
 	const [state, dispatch] = useReducer(reducer, initialState)
 
-	/* const [list, setList] = useState(items)
-	const [val, setVal] = useState(null)
-	const [label, setLabel] = useState("Seçenekler")
+	const optionArea = useRef()
 
-	const action = (items, index) => {
-		return items.map((item, i) => {
-			if (index !== i) {
-				item.activated = undefined
-			} else {
-				item.activated = true
-				setVal(item.value)
-				setLabel(item.text)
-			}
-		})
+	/* const clickHandler = () => {
+		//optionArea.current.classList.toggle("hide")
+		const el = optionArea.current
+
+		if (el.classList.contains("hide")) {
+			el.classList.remove("hide")
+		} else {
+			el.classList.add("hide")
+		}
 	} */
 
-	/* useEffect(() => {
-		setList(action(items, 0))
-	}, []) */
-
-
 	return (
-		<div className={styles.select}>
+		<div className={cn(styles.select, className)}>
 
 			<input type="hidden" value={state.value || ""} {...props} />
 
-			<button className={styles.button} onClick={(event) => event.preventDefault()}>
+			<button className={styles.button} /* onClick={() => clickHandler()} */>
 				<span>{state.label}</span>
 				{align === "top"
 					? <ChevronUp className={styles.chevron} />
@@ -70,8 +72,12 @@ function Select({ items, className, align, size, color, ...props }) {
 				}
 			</button>
 
-			<div className={cn(styles.options, align ? styles[align] : styles.bottom)}>
-				<List drawer compact items={items} />
+			<div ref={optionArea} className={cn(
+				styles.options,
+				align ? styles[align] : styles.bottom,
+				//"hide"
+			)}>
+				<List drawer compact items={state.options} />
 			</div>
 		</div>
 	)

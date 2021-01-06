@@ -8,19 +8,19 @@ function Product({ children, className, ...props }) {
 	return (
 		<div className={cn(styles.product, className)} {...props}>
 			<PageTitle>Product</PageTitle>
-			<Select items={[
+			<Select options={[
 				{
 					text: "Option",
 					value: "option 1"
 				},
 				{
 					text: "Option 2",
-					value: "option 2",
-					activated: true
+					value: "option 2"
 				},
 				{
 					text: "Option 3",
-					value: "option 3"
+					value: "option 3",
+					//selected: true
 				}
 			]} />
 		</div>

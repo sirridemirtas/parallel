@@ -10,7 +10,8 @@ export function ListSubtitle({ children, className }) {
 	return <span className={cn(styles.subtitle, className)}>{children}</span>
 }
 
-export function ListItem({ text, href, icon, activated, className, ...props }) {
+export function ListItem({ text, href, icon, activated, selected, className, ...props }) {
+	activated = activated || selected
 	const Wrapper = ({ to, ...props }) => {
 		return to
 			? <Link to={to} {...props} />
@@ -71,7 +72,7 @@ function List({ items, children, className, drawer, compact, itemCount, ...props
 						href={item.href || null}
 						icon={item.icon || null}
 						text={item.text}
-						activated={item.activated}
+						activated={item.activated || item.selected}
 						{...item}
 					/>}
 				</AnonymousTag>

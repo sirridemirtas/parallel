@@ -13,9 +13,11 @@
 	color: var(--text-color);
 	background-color: var(--bg-color);
 	font-size: inherit;
+	z-index: 1;
 }
 
 .button {
+	width: 100%;
 	color: inherit;
 	background-color: transparent;
 	font-size: inherit;
@@ -54,6 +56,10 @@
 	box-shadow: var(--gray-5) 0px 0px 0px 1px, var(--gray-5) 0px 4px 11px;
 	position: absolute;
 	width: 100%;
+	visibility: hidden;
+}
+
+.options:empty {
 	visibility: hidden;
 }
 
