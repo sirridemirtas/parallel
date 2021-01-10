@@ -5,7 +5,7 @@ import styles from "./input-group.module.css"
 function InputGroup({ items, className, ...props }) {
 	//children.map((Child, i) => children[i] = { i })
 	return (
-		<div className={cn(styles.inputGroup)}>
+		<div className={cn(styles.inputGroup)} {...props}>
 			{items}
 		</div>
 	)

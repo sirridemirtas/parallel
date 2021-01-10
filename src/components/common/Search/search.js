@@ -34,7 +34,7 @@ function Search({ className }) {
 
 	return (
 		<div className={cn(styles.wrapper, className)}>
-			<SearchBox />
+			<SearchBox className={styles.searchBox} />
 			{results &&
 				<SearchSuggestions className={styles.suggestions} data={results} />
 			}

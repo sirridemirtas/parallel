@@ -20,6 +20,27 @@ function Customer({ children, className, ...props }) {
 			justifyContent: "center",
 			gap: "10px"
 		}}>
+			{/* <Button onClick={() => toggleModal()}>Modal</Button>
+			<Modal visibility={modalVisibility}>
+				<ModalTitle>Modal Title</ModalTitle>
+				<ModalContent>
+					Lorem ipsum dolor sit amet consectetur adipisicing.
+				</ModalContent>
+				<ModalActions>
+					<ModalButton onClick={() => toggleModal()}>kapat</ModalButton>
+				</ModalActions>
+			</Modal>
+
+			<Button onClick={() => toggleConfirm()}>CONFIRM</Button>
+			<ConfirmBox
+				visibility={confirmVisibility}
+				onClosed={() => toggleConfirm()}
+				onConfirm={() => "karpuz"}
+				title="Title of Confirm"
+				body="Are you sure you want to delete this customer?"
+				acceptLabel="SİL"
+				cancelLabel="İPTAL"
+			/> */}
 
 			<InputGroup items={[
 				<Button key="1" variant={"outlined"}><Location />Deneme 1</Button>,

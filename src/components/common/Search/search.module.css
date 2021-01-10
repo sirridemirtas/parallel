@@ -8,3 +8,16 @@
 .wrapper:focus-within .suggestions {
 	visibility: visible;
 }
+
+
+.wrapper:focus-within .searchBox {
+	background: transparent;
+	border-color: transparent;
+	box-shadow: 
+		rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, 
+		var(--theme) 0px 0px 0px 2px;
+}
+
+.wrapper:focus-within .searchBox button {
+	--color: var(--theme);
+}

@@ -15,13 +15,14 @@ function App() {
 		}
 	}, [])
 
+	// https://pshrmn.github.io/route-tester/#/c/1232232323
 	return (
 		<AppProvider>
 			<Router>
 				<Layout>
 					<Switch>
 						<Route
-							path="/customers/:id"
+							path="/customers/:id([0-9]*)"
 							children={<Customer />}
 						/>
 						<Route path="/products">

@@ -11,7 +11,7 @@ function SwitchTheme({ children, className, ...props }) {
 	return (
 		<IconButton color="theme"
 			onClick={() => store.dispatch({ type: "SWITCH_THEME" })}
-			icon={store.state.theme !== "light" ? <Sunny /> : <Moon />}
+			icon={store.state.theme !== "light" ? <Sunny color="orange" /> : <Moon />}
 			className={cn(styles.switchTheme, className)}
 			{...props}
 		/>

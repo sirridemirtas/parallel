@@ -13,22 +13,14 @@
 	width: 100%;
 }
 
-.wrapper:focus-within {
-	background: transparent;
-	border-color: transparent;
-	box-shadow: 
-		rgba(0, 0, 0, 0.1) 0px 0px 0px 1px, 
-		var(--theme) 0px 0px 0px 2px;
-}
-
 .button:hover {
 	background-color: var(--gray-5);
 }
 
-.wrapper:focus-within .button{
+/* .wrapper:focus-within .button{
 	--color: var(--theme);
 }
-
+ */
 .wrapper:focus-within .button:hover{
 	background-color: var(--theme-tint-10);
 }

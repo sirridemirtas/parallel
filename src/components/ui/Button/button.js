@@ -1,10 +1,11 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import cn from "classnames"
 import { v4 } from "uuid"
 import styles from "./button.module.css"
 
 function LinkButton({ href, children, ...props }) {
-	return <a href={href} {...props}>{children}</a>
+	return <Link to={href} {...props}>{children}</Link>
 }
 
 function BaseButton({ children, ...props }) {

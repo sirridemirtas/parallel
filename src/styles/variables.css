@@ -68,7 +68,7 @@ body {
 }
 
 body.dark {
-	transition: color 500ms;
+	/* transition: color 500ms; */
 	/** Theme **/
 	--theme: rgb(204, 112, 254);
 	--theme-tint-10:  rgba(204, 112, 254, .1);

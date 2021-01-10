@@ -9,17 +9,14 @@ function SearchBox({ className, size, color = undefined, ...props }) {
 	const handleFocus = () => sBox.current.focus()
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={cn(styles.wrapper, className)}>
 			<IconButton tabIndex="-1" className={styles.button} icon={<Search />}
 				onClick={handleFocus} size="small"
 			/>
 			<input
 				ref={sBox}
 				type="search"
-				className={cn(
-					styles.searchBox,
-					className
-				)}
+				className={styles.searchBox}
 				placeholder={"search on parallel"}
 				{...props}
 			/>
