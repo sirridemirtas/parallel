@@ -7,7 +7,7 @@
 	--color: var(--theme);
 	--color-tp: var(--theme-tint-10);
 	_background-color: var(--color-tp);
-	background-color: rgba(128, 128, 128, .05);
+	background-color: rgba(230, 230, 230, .1);
 	border: var(--border);
 	color: var(--text-color);
 	width: 100%;

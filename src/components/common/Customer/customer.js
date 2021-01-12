@@ -7,7 +7,29 @@ import PageTitle from "../PageTitle"
 import ActionLink, { ActionLinks } from "../ActionLink"
 import CustomerDetail from "../CustomerDetail"
 import { Tabs, TabButton } from "../../ui/Tabs"
+import Chip from "../../ui/Chip"
+import CustomerPayments from "../CustomerPayments"
+import CustomerAccountSummary from "../CustomerAccountSummary"
+import CustomerOrders from "../CustomerOrders"
+import { Verified } from "../../icons_old"
 import styles from "./customer.module.css"
+
+const CustomerGroups = ({ text, icon, href, ...props }) => {
+	return (
+		<div className={styles.groups}>
+			<PageSubtitle>Gruplar</PageSubtitle>
+
+			<Chip color="green">
+				Güvenilir Müşteriler
+			</Chip>
+
+			<Chip color="blue">
+				Onaylı
+			</Chip>
+		</div>
+	)
+}
+
 
 function Customer({ children, className, ...props }) {
 	//let { id } = useParams()
@@ -26,34 +48,44 @@ function Customer({ children, className, ...props }) {
 		<div className={cn(styles.customer, className)} {...props}>
 			{ (!data) ? <Spinner /> :
 				<>
-					<PageTitle>{data.name + " " + data.surname} <small></small></PageTitle>
+					<PageTitle>
+						{data.name + " " + data.surname} <small></small>
+						<Verified title="Güvenilir Müşteri"
+							style={{ fontSize: "20px", color: "var(--blue)" }} />
+					</PageTitle>
+
 					<ActionLinks links={[
 						<ActionLink>Seçenekler</ActionLink>
 					]} />
 
 					<PageSubtitle>GENEL BİLGİLER</PageSubtitle>
-
 					<CustomerDetail data={data} />
+					<CustomerGroups />
 
 					<PageSubtitle>HESAPLAR</PageSubtitle>
-
 					<Tabs>
-						<TabButton href={`${url}`} activated={"true"}>Özet</TabButton>
+						<TabButton exact href={`${url}`}>Özet</TabButton>
 						<TabButton href={`${url}/payments`}>Ödemeler</TabButton>
-						<TabButton href={`${url}/products`}>Ürünler</TabButton>
+						<TabButton href={`${url}/orders`}>Siparişler</TabButton>
 					</Tabs>
+
+					<div className={"mb-16"}></div>
 
 					<Switch>
 						<Route exact path={path}>
-							<span>Hesaplar</span>
+							<CustomerAccountSummary />
 						</Route>
 
 						<Route path={`${path}/accounts`}>
-							<span>Hesaplar</span>
+							<CustomerAccountSummary />
 						</Route>
 
 						<Route path={`${path}/payments`}>
-							<span>Ödemeler</span>
+							<CustomerPayments />
+						</Route>
+
+						<Route path={`${path}/orders`}>
+							<CustomerOrders />
 						</Route>
 					</Switch>
 				</>}

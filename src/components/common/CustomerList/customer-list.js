@@ -12,7 +12,7 @@ function CustomerList({ cluster, className, ...props }) {
 		{
 			text: "Joe Biden",
 			href: "/customers/1",
-			activated: location.pathname === "/customers/1"
+			activated: location.pathname.startsWith("/customers/1")
 		},
 		{ text: "Donald Trump" },
 		{ text: "Barack Obama" },

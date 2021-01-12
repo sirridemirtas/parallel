@@ -1,3 +1,13 @@
 .customer {
 	padding: 24px;
 }
+
+.groups {
+	padding: 0;
+	_border: var(--border)
+}
+
+.groups > *:not(h2) {
+	margin-right: 8px;
+	margin-bottom: 8px;
+}

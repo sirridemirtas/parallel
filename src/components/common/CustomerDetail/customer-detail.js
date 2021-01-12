@@ -29,6 +29,7 @@ function CustomerDetail({ data, className, ...props }) {
 				icon={<Location color="red" />}
 				text={data.address}
 			/>}
+
 		</div>
 	)
 }

@@ -3,19 +3,23 @@ import cn from "classnames"
 import Button from "../Button"
 import styles from "./tabs.module.css"
 
-export const TabButton = ({ children, ...props }) => {
+export const TabButton = ({ children, activated, ...props }) => {
 	return (
 		<Button
-			variant={"text"}
-			className={cn(styles.button, props.activated && styles.activated)}
-			onClick={(event) => {
+			variant="text"
+			className={cn(styles.button, activated && styles.activated)}
+			/* onClick={(event) => {
 				event.target.parentNode.querySelector(`.${styles.activated}`)
 					?.classList.remove(styles.activated)
 
 				event.target.classList.add(styles.activated)
-			}}
-			{...props}
-			size="small">{children}</Button>
+			}} */
+			navLink={true}
+			activeClassName={styles.activated}
+			size="small"
+			{...props}>
+			{children}
+		</Button>
 	)
 }
 
@@ -25,7 +29,7 @@ export function Tabs({ children, className, ...props }) {
 	)
 
 	return (
-		<div className={styles.tabs} >
+		<div className={cn(styles.tabs, className)} {...props}>
 			{state}
 		</div>
 	)

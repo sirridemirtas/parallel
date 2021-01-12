@@ -21,10 +21,12 @@
 	padding-right: 16px;
 	font-size: 14px;
 	font-weight: 500;
-	border: var(--border);
+	_border: var(--border);
 	border-radius: var(--border-radius);
 	text-decoration: none;
 	color: inherit;
+
+	background-image: linear-gradient(rgba(192 ,192, 192, .0382), rgba(192 ,192, 192, .0618))
 }
 
 .button:hover {
