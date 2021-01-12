@@ -1,0 +1,6 @@
+.chip {
+	font-size: .82em;
+	border-radius: 32px;
+	_background-color: var(--color-tp);
+	text-transform: inherit;
+}
