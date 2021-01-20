@@ -1,8 +1,17 @@
 @import "normalize.css";
 @import "variables.css";
 
-::-moz-selection{background:var(--theme-tint-10);color:var(--theme);text-decoration: none;}
-::selection{background:var(--theme-tint-10);color:var(--theme);text-decoration: none;}
+::-moz-selection {
+	background: var(--color-tp);
+	color: var(--color);
+	text-decoration: none;
+}
+
+::selection {
+	background: var(--color-tp);
+	color: var(--color);
+	text-decoration: none;
+}
 
 * {
 	margin: 0;
@@ -10,8 +19,7 @@
 	border: 0;
 	font-family: inherit;
 	box-sizing: border-box;
-	/*letter-spacing: -.022em;
-	*/
+	/*letter-spacing: -.022em;*/
 }
 
 html {

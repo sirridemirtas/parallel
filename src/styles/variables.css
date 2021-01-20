@@ -65,6 +65,9 @@ body {
 	--border: 1px solid var(--border-color);
 	--border-radius: 5px;
 	/** Borders **/
+
+	--color: var(--bg-color);
+	--color-tp: var(--text-color);
 }
 
 body.dark {
@@ -117,4 +120,6 @@ body.dark {
 
 	-webkit-font-smoothing: initial;
 	-moz-osx-font-smoothing: initial;
+
+	_scrollbar-color: dark;
 }

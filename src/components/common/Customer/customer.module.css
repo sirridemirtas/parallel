@@ -1,10 +1,12 @@
 .customer {
 	padding: 24px;
+	padding-bottom: 50vh;
+	height: 150vh;
 }
 
 .groups {
 	padding: 0;
-	_border: var(--border)
+	_border: var(--border);
 }
 
 .groups > *:not(h2) {

@@ -4,10 +4,11 @@ export const actions = {
 
 		localStorage.setItem("theme", theme)
 		//document.body.classList.toggle("dark")
-		if (theme === "light")
+		if (theme === "light") {
 			document.body.classList.remove("dark")
-		else
+		} else {
 			document.body.classList.add("dark")
+		}
 
 		return theme
 	}

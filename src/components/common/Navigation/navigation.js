@@ -1,4 +1,5 @@
 import React from "react"
+import cn from "classnames"
 import { useLocation } from "react-router-dom"
 import { People, Card, Cash, Document, Settings, List as ListIcon, PieChart } from "../../icons"
 import List from "../List"
@@ -7,7 +8,7 @@ import CustomerList from "../CustomerList"
 import CustomerGroupList from "../CustomerGroupList "
 import styles from "./navigation.module.css"
 
-function Navigation() {
+function Navigation({ className }) {
 	const location = useLocation()
 	const [list, setList] = React.useState(null)
 
@@ -99,7 +100,7 @@ function Navigation() {
 	}, [location])
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={cn(styles.wrapper, className)}>
 
 			<div className={styles.nav}>
 				<List drawer={true} items={navItems} />

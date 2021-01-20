@@ -3,7 +3,7 @@ import cn from "classnames"
 import styles from "./icon-button.module.css"
 import colors from "../../../styles/colors.css"
 
-function IconButton({ className, size, color, ...props }) {
+function IconButton({ className, size, color, icon, ...props }) {
 
 	return (
 		<button className={cn(
@@ -12,7 +12,7 @@ function IconButton({ className, size, color, ...props }) {
 			color || colors[color],
 			className
 		)} {...props}>
-			{props.icon && props.icon}
+			{icon && icon}
 		</button>
 	)
 }

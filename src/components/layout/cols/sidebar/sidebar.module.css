@@ -1,22 +1,17 @@
 .sidebar {
-	height: 100vh;
 	position: sticky;
-	top: 0;
-	z-index: 20;
-	backdrop-filter:blur(20px);
-	border-left: var(--border);
-	overflow: none;
+	top: 0; left: 0;
+	min-height: 100vh;
+
+	backdrop-filter: blur(20px);
+	border-right: var(--border);
 }
 
 .top {
 	composes: appbar from "../appbar/appbar.module.css";
-	border-right: var(--border);
-	min-height: 64px;
+	position: fixed;
 }
 
 .sidebar *::-webkit-scrollbar {
 	width: 0px;
 }
-
-
-

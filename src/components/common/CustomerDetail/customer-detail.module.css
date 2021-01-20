@@ -38,3 +38,9 @@
 	font-size: 24px;
 }
 
+.detail address {
+	text-decoration: inherit;
+	font-style: inherit;
+	margin: 0;
+	padding: 0;
+}

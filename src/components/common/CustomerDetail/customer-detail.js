@@ -27,7 +27,7 @@ function CustomerDetail({ data, className, ...props }) {
 
 			{data.address && <DetailButton
 				icon={<Location color="red" />}
-				text={data.address}
+				text={<address>{data.address}</address>}
 			/>}
 
 		</div>

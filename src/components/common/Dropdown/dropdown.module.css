@@ -15,42 +15,29 @@
 	
 	display: flex;
 	flex-direction: column;
-	visibility: hidden;
+	/* visibility: hidden; */
 }
 
-.dropdown:focus-within .list {
+/* .dropdown:focus-within .list {
 	visibility: visible;
-}
+} */
 
-
-
-
-/* .list:not(:focus-within) {
-	display: none;
-} 
-
-.button:focus + .list,
-.dropdown:active > .list{
-	display: flex;
-	flex-direction: column;
-}*/
-
-.bottomRight{
+.bottomRight {
 	top: 100%;
 	right: 0;
 }
 
-.bottomLeft{
+.bottomLeft {
 	top: 100%;
 	left: 0;
 }
 
-.topRight{
+.topRight {
 	bottom: 100%;
 	right: 0;
 }
 
-.topLeft{
+.topLeft {
 	bottom: 100%;
 	left: 0;
 }

@@ -32,7 +32,6 @@ function Sidebar() {
 
 	return (
 		<div className={styles.sidebar}>
-
 			<div className={styles.top}>
 				<Logo />
 			</div>

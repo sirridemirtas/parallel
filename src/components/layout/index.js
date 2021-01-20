@@ -1,22 +1,31 @@
 import React from "react"
-import cn from "classnames"
 import styles from "./index.module.css"
 import Appbar from "./cols/appbar"
-import Sidebar from './cols/sidebar'
-import Main from './cols/main'
 import CreateCustomer from "../forms/CreateCustomer"
 import CreateProduct from "../forms/CreateProduct"
+import Navigation from "../common/Navigation/navigation"
+import Logo from "../common/Logo"
 
 function Layout({ children }) {
 	return (
-		<div className={cn(styles.layout)}>
-			<Sidebar />
-			<Main>
-				<Appbar />
-				{children}
-			</Main>
-			<CreateCustomer />
-			<CreateProduct />
+		<div className={styles.layout} >
+			<div className={styles.sidebar}>
+				<Appbar className={styles.appbar} >
+					<Logo />
+				</Appbar>
+
+				<Navigation className={styles.nav} />
+			</div>
+
+			<div className={styles.content}>
+				<Appbar className={styles.appbar} />
+
+				<div className={styles.main}>
+					{children}
+					<CreateCustomer />
+					<CreateProduct />
+				</div>
+			</div>
 		</div>
 	)
 }
