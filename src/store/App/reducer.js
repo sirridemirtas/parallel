@@ -4,6 +4,8 @@ export const reducer = (state, action) => {
 	const { payload } = action
 
 	switch (action.type) {
+		case "SET_AUTH_TOKEN":
+			return { ...state, authToken: actions.setAuthToken(payload) }
 
 		case "SWITCH_THEME":
 			return { ...state, theme: actions.switchTheme(state.theme) }

@@ -1,0 +1,9 @@
+.alert {
+	--color: var(--theme);
+	--color-tp: var(--theme-tint-10);
+	background-color: var(--color-tp);
+	color: var(--color);
+	padding: 12px;
+	border-radius: var(--border-radius);
+	margin: 8px;
+}

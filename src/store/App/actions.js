@@ -1,4 +1,14 @@
 export const actions = {
+	setAuthToken: (token) => {
+		if (token) {
+			localStorage.setItem("auth_token", token)
+			return token
+		} else {
+			localStorage.removeItem("auth_token")
+			return null
+		}
+	},
+
 	switchTheme: (t) => {
 		const theme = t === "light" ? "dark" : "light"
 

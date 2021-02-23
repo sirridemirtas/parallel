@@ -1,7 +1,0 @@
-@import "../src/styles/index.css";
-@import "../src/styles/colors.css";
-
-.story {
-	display: flex;
-	gap: 16px;
-}

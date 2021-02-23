@@ -1,17 +1,19 @@
-import React, { createContext, useReducer } from "react"
+import { createContext, useReducer } from "react"
 import { reducer } from "./reducer"
 
-export const AppContext = createContext(null)
+const AppContext = createContext(null)
 
 const AppProvider = ({ ...props }) => {
-
 	const initialState = {
 		title: "Parallel React",
-		theme: (localStorage.getItem("theme") || "light"),
+		theme: localStorage.getItem("theme") || "light",
 		modals: {
 			createCustomer: false,
-			crerateProduct: false
-		}
+			updateCustomer: false,
+			createProduct: false,
+			updateProduct: false
+		},
+		authToken: localStorage.getItem("auth_token") || null
 	}
 
 	const [state, dispatch] = useReducer(reducer, initialState)
@@ -23,4 +25,4 @@ const AppProvider = ({ ...props }) => {
 	)
 }
 
-export default AppProvider
+export { AppProvider, AppContext }

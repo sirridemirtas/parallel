@@ -1,6 +1,5 @@
-import React, { useContext } from "react"
+import { useContext } from "react"
 import cn from "classnames"
-//import useBodyScrollPosition from "../../../../hooks/useBodyScrollPosition"
 import Dropdown from "../../../common/Dropdown"
 import Search from "../../../common/Search"
 import IconButton from "../../../ui/IconButton"
@@ -9,19 +8,15 @@ import SwitchTheme from "../../../common/SwitchTheme"
 import styles from "./appbar.module.css"
 import { AppContext } from "../../../../store/App"
 
-function Appbar({ children }) {
-	//const scroll = useBodyScrollPosition()
+function Appbar({ children, className }) {
 	const store = useContext(AppContext)
 
 	return children
 		? (
-			<div className={styles.appbar}>{children}</div>
+			<div className={cn(styles.appbar, className)}>{children}</div>
 		)
 		: (
-			<div className={cn(
-				styles.appbar,
-				//scroll.scrollTop > 16 && styles.shadow
-			)}>
+			<div className={cn(styles.appbar, className)}>
 				<div>
 					{
 						<Dropdown

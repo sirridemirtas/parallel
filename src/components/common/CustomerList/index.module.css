@@ -1,0 +1,21 @@
+.select {
+	width: 100%;
+	border-radius: 0;
+	border: 0;
+	border-bottom: var(--border);
+}
+
+.actions {
+	position: sticky;
+	top: 0;
+}
+
+.select > * {
+	width: 94%;
+}
+
+.select:focus-within {
+	border-bottom: var(--border);
+	box-shadow: none;
+	background-color: rgba(192, 192, 192, .1);
+}

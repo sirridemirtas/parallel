@@ -1,1 +1,1 @@
-export { default, AppContext } from "./store"
+export { AppProvider, AppContext } from "./store"

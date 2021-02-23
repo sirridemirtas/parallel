@@ -1,40 +1,51 @@
-import React from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { useContext } from "react"
+import axios from "axios"
+import { AppContext } from "./store"
 import "./styles/index.css"
-import AppProvider from "./store/App"
 import Layout from "./components/layout"
-import Customer from "./components/common/Customer"
-import Product from "./components/common/Product"
-import ComponentsPreview from "./components/common/ComponentsPreview"
+import Login from "./components/common/Login"
 
 function App() {
+	const store = useContext(AppContext)
 
-	React.useEffect(() => {
-		if (localStorage.getItem("theme") === "dark") {
-			document.body.classList.add("dark")
+	// https://stackoverflow.com/a/51795582
+	axios.defaults.baseURL = "http://localhost:3000/api"
+
+	/**
+	 * Authorization
+	 */
+	// https://github.com/axios/axios/issues/1905
+	axios.defaults.headers.common["Authorization"] = `Bearer ${store.state.authToken}`
+
+	/* axios.interceptors.request.use(function (config) {
+		config.headers.Authorization = `Bearer ${store.state.authToken}`
+		return config
+	}) */
+
+	axios.interceptors.response.use(
+		res => res,
+		error => {
+			const status = error.response.status
+			if (status === 401) {
+				store.dispatch({ type: "SET_AUTH_TOKEN", payload: null })
+			} else if (status === 404) {
+				console.log("err404")
+			}
+			throw error
 		}
-	}, [])
+	)
 
-	// https://pshrmn.github.io/route-tester/#/c/1232232323
+	/**
+	 * Theme
+	 */
+	if (localStorage.getItem("theme") === "dark" && store.state.authToken) {
+		document.body.classList.add("dark")
+	}
+
 	return (
-		<AppProvider>
-			<Router>
-				<Layout>
-					<Switch>
-						<Route
-							path="/customers/:id([0-9]*)"
-							children={<Customer />}
-						/>
-						<Route path="/products">
-							<Product />
-						</Route>
-						<Route path="/components">
-							<ComponentsPreview />
-						</Route>
-					</Switch>
-				</Layout >
-			</Router>
-		</AppProvider>
+		!store.state.authToken
+			? <Login />
+			: <Layout />
 	)
 }
 

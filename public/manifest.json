@@ -1,16 +1,26 @@
 {
 	"name": "Parallel React App",
 	"short_name": "Parallel",
+	"icons": [
+		{
+			"src": "favicon.ico",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/x-icon"
+		},
+		{
+			"src": "logo192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "logo512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
 	"start_url": ".",
 	"display": "standalone",
 	"background_color": "#6200ee",
 	"description": "Parallel React Description",
-	"theme_color": "#6200ee",
-	"icons": [
-		{
-			"src": "./img/icons/icon-512x512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		}
-	]
+	"theme_color": "#6200ee"
 }

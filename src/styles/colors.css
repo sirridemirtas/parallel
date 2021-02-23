@@ -8,5 +8,5 @@
 .teal		 {--color: var(--teal) 		!important; --color-tp: var(--teal-tint-10)		!important}
 .yellow		 {--color: var(--yellow) 	!important; --color-tp: var(--yellow-tint-10) 	!important}
 .gray		 {--color: var(--gray) 		!important; --color-tp: var(--gray-6) 			!important}
-.black		 {--color: var(--text-color)!important; --color-tp: var(--gray-3) 			!important}
+.black		 {--color: var(--text-color)!important; --color-tp: var(--gray-5) 			!important}
 .theme		 {--color: var(--theme) 	!important; --color-tp: var(--theme-tint-10) 	!important}
