@@ -1,10 +1,10 @@
 import { Dropdown } from "../"
 import {
+	Heart,
 	HeartFill,
-	ShieldCheckmark,
 	Location,
-	Heart
-} from "../../icons"
+	ShieldCheckmark
+} from "components/icons"
 import {
 	Button,
 	Checkbox,
@@ -14,9 +14,9 @@ import {
 	Table,
 	TextField,
 	RadioButton
-} from "../../ui"
+} from "components/ui"
 
-function Customer({ children, className }) {
+function Customer() {
 	return (
 		<div style={{
 			padding: "20px",

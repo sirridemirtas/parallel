@@ -1,4 +1,4 @@
-import { Call, Location, FingerPrint } from "../../icons"
+import { Call, FingerPrint, Location } from "components/icons"
 import styles from "./index.module.css"
 
 const DetailButton = ({ text, icon, href, ...props }) => {

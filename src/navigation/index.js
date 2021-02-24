@@ -4,16 +4,13 @@ import { Customer } from "components/pages"
  * This file is not used yet
  */
 
-const PageNavigation = ({ }) => {
+function PageNavigation() {
 	return (
 		<Switch>
-			<Route
-				//path="/customers/:id([0-9]*)"
-				path="/customers/:customerId"
-				//children={<Customer customerId={23423} />}
-				render={props => <Customer customerId={props.match.params.customerId} />}
-			/>
-			<Route path="/products/:id">
+			<Route path={routes.CUSTOMER}>
+				<Customer />
+			</Route>
+			<Route path={routes.PRODUCT}>
 				<Product />
 			</Route>
 			<Route path="/components">
@@ -23,4 +20,4 @@ const PageNavigation = ({ }) => {
 	)
 }
 
-export const PageNavigation
+export default PageNavigation

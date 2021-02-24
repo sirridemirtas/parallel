@@ -1,53 +1,45 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { ComponentsPreview, Customer, Logo, Navigation, Product } from "../common"
-import { ModalProvider } from "../../store"
-import styles from "./index.module.css"
+import { ComponentsPreview, Customer, Logo, Navigation, Product } from "components/common"
+import { routes } from "navigation/constants"
+import { ModalProvider } from "store"
 import Appbar from "./cols/appbar"
-import CreateCustomer from "../forms/CreateCustomer"
-import CreateProduct from "../forms/CreateProduct"
-import UpdateCustomer from "../forms/UpdateCustomer"
+import {
+	CreateCustomer,
+	CreateProduct,
+	UpdateCustomer
+} from "components/forms"
+import styles from "./index.module.css"
 
 function Layout() {
-	// https://pshrmn.github.io/route-tester/#/c/1232232323
-	return (
+	return ( // https://pshrmn.github.io/route-tester/#/c/1232232323
 		<Router>
 			<div className={styles.layout} >
 				<div className={styles.sidebar}>
 					<Appbar className={styles.appbar} >
 						<Logo />
 					</Appbar>
-
 					<Navigation className={styles.nav} />
 				</div>
-
 				<div className={styles.content}>
 					<Appbar className={styles.appbar} />
-
 					<div className={styles.main}>
 						<Switch>
-							<Route
-								//path="/customers/:id([0-9]*)"
-								path="/customers/:customerId"
-								//children={<Customer customerId={23423} />}
-								render={props => <Customer customerId={props.match.params.customerId} />}
-							/>
-							<Route path="/products/:id">
+							<Route path={routes.CUSTOMER}>
+								<Customer />
+							</Route>
+							<Route path={routes.PRODUCT}>
 								<Product />
 							</Route>
 							<Route path="/components">
 								<ComponentsPreview />
 							</Route>
 						</Switch>
-
 						<ModalProvider>
 							<CreateCustomer />
 							<UpdateCustomer />
 							<CreateProduct />
 						</ModalProvider>
-
-						{/* <div className={styles.bottomBar}>bottom bar</div> */}
 					</div>
-
 				</div>
 			</div>
 		</Router>

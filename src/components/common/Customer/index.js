@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import cn from "classnames"
 import {
-	// useParams,
+	useParams,
 	useRouteMatch,
 	Switch,
 	Route
@@ -26,18 +26,16 @@ import {
 	Tabs,
 	TabButton
 } from "components/ui"
-import { Verified } from "components/icons_old"
+import { Verified } from "components/icons"
 import styles from "./index.module.css"
 
 const CustomerGroups = () => {
 	return (
 		<div className={styles.groups}>
 			<PageSubtitle>Gruplar</PageSubtitle>
-
 			<Chip color="green">
 				Güvenilir Müşteriler
 			</Chip>
-
 			<Chip color="blue">
 				Onaylı
 			</Chip>
@@ -48,37 +46,38 @@ const CustomerGroups = () => {
 const CustomerAccounts = () => {
 	const { path, url } = useRouteMatch()
 
-	return (<>
-		<Tabs>
-			<TabButton exact href={`${url}`}>Özet</TabButton>
-			<TabButton href={`${url}/payments`}>Ödemeler</TabButton>
-			<TabButton href={`${url}/orders`}>Siparişler</TabButton>
-		</Tabs>
-
-		<div className={"mb-16"}></div>
-		<Switch>
-			<Route exact path={path}>
-				<CustomerAccountSummary />
-			</Route>
-			<Route path={`${path}/accounts`}>
-				<CustomerAccountSummary />
-			</Route>
-			<Route path={`${path}/payments`}>
-				<CustomerPayments />
-			</Route>
-			<Route path={`${path}/orders`}>
-				<CustomerOrders />
-			</Route>
-		</Switch>
-	</>)
+	return (
+		<>
+			<Tabs>
+				<TabButton exact href={`${url}`}>Özet</TabButton>
+				<TabButton href={`${url}/payments`}>Ödemeler</TabButton>
+				<TabButton href={`${url}/orders`}>Siparişler</TabButton>
+			</Tabs>
+			<div className={"mb-16"}></div>
+			<Switch>
+				<Route exact path={path}>
+					<CustomerAccountSummary />
+				</Route>
+				<Route path={`${path}/accounts`}>
+					<CustomerAccountSummary />
+				</Route>
+				<Route path={`${path}/payments`}>
+					<CustomerPayments />
+				</Route>
+				<Route path={`${path}/orders`}>
+					<CustomerOrders />
+				</Route>
+			</Switch>
+		</>
+	)
 }
 
-function Customer({ customerId, className, ...props }) {
+function Customer({ className, ...props }) {
 	const [error, setError] = useState(null)
 	const [isLoaded, setIsLoaded] = useState(false)
 	const [customer, setCustomer] = useState({})
 	const [deleteCustomer, setDeleteCustomer] = useState(false)
-	//let { customerId } = useParams()
+	let { customerId } = useParams()
 
 	useEffect(() => {
 		axios.get("/customers/" + customerId)

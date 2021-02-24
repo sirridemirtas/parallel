@@ -1,12 +1,16 @@
 import { useContext } from "react"
 import cn from "classnames"
-import Dropdown from "../../../common/Dropdown"
-import Search from "../../../common/Search"
-import IconButton from "../../../ui/IconButton"
-import { EllipsisHorizontal, PersonAdd, Cube, Document, Wallet } from "../../../icons"
-import SwitchTheme from "../../../common/SwitchTheme"
+import { AppContext } from "store/App"
+import { Dropdown, Search, SwitchTheme } from "components/common"
+import { IconButton } from "components/ui"
+import {
+	Cube,
+	Document,
+	EllipsisHorizontal,
+	PersonAdd,
+	Wallet
+} from "components/icons"
 import styles from "./appbar.module.css"
-import { AppContext } from "../../../../store/App"
 
 function Appbar({ children, className }) {
 	const store = useContext(AppContext)

@@ -1,7 +1,7 @@
 import { useReducer, useRef } from "react"
 import cn from "classnames"
-import { List } from "../../common"
-import { ChevronDown, ChevronUp } from "../../icons"
+import { List } from "components/common"
+import { ChevronDown, ChevronUp } from "components/icons"
 import styles from "./index.module.css"
 
 function Select({ options = [], placeholder, className, align, size, color, ...props }) {

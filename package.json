@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "icon": "svgr src/icons -d src/components/icons --icon --replace-attr-values \"#fff=currentColor\""
+    "icon": "svgr src/assets/icons_used -d src/components/icons --icon --replace-attr-values \"#fff=currentColor\""
   },
   "eslintConfig": {
     "extends": [

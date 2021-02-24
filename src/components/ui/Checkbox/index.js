@@ -1,6 +1,6 @@
 import { useState } from "react"
 import cn from "classnames"
-import { Square, Checkbox as CheckboxMarked } from "../../icons"
+import { Square, Checkbox as CheckboxMarked } from "components/icons"
 import styles from "./index.module.css"
 
 function Checkbox({ checked = false, color, children, ...props }) {

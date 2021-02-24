@@ -1,5 +1,5 @@
 import cn from "classnames"
-import { House } from "../../icons_old"
+import { House } from "components/icons"
 import styles from "./index.module.css"
 
 function Logo({ children, className, variant, color }) {

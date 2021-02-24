@@ -8,11 +8,11 @@ import styles from "./index.module.css"
 
 function Product({ children, className, ...props }) {
 	const [product, setProduct] = useState(null)
-	let { id } = useParams()
+	let { productId } = useParams()
 
 	useEffect(() => {
 
-		axios.get("/products/" + id)
+		axios.get("/products/" + productId)
 			.then((res) => {
 				setProduct(res.data)
 			})
@@ -20,7 +20,7 @@ function Product({ children, className, ...props }) {
 				console.log(res.data)
 			});
 
-	}, [id])
+	}, [productId])
 
 	return (!product ? <Spinner /> :
 		<div className={cn(styles.product, className)} {...props}>
