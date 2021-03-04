@@ -1,39 +1,33 @@
 import axios from "axios"
-/* export const getCustomer = (id: string) => ({
-	method: "get",
-	url: `/customers/${id}`
-}) */
 
-export const CUSTOMER_ACTIONS = {
-	GET: "GET",
-	GET_ALL: "GET_ALL",
-	CREATE: "CREATE",
-	UPDATE: "UPDATE",
-	DELETE: "DELETE"
-}
+const fetch = axios
 
-export const getCustomer = (id) => ({
-	method: "get",
-	url: `/customers/${id}`
+export const getCustomer = (customerId) => fetch({
+	method: "GET",
+	url: `/customers/${customerId}`
 })
 
-export const getAllCustomers = () => {
-	console.log("userServices > getAllCustomers called...")
-	return new Promise((resolve, reject) => {
-		try {
-			axios
-				.get("/customers")
-				.then((res) => {
-					console.log("getAllCustomers > axios res=", res)
-					resolve(res.data)
-				})
-				.catch((err) => {
-					console.log("getAllCustomers > axios err=", err)
-					reject("Error in getAllCustomers axios!")
-				})
-		} catch (error) {
-			console.error("in userServices > getAllCustomers, Err===", error)
-			reject(SYSTEM_ERROR)
-		}
-	})
-}
+export const getAllCustomers = (params) => fetch({
+	method: "GET",
+	url: `/customers`,
+	params: params
+})
+
+export const findCustomers = getAllCustomers
+
+export const createCustomer = (data) => fetch({
+	method: "POST",
+	url: `/customers`,
+	data: data
+})
+
+export const updateCustomer = (id, data) => fetch({
+	method: "PUT",
+	url: `/customers/${id}`,
+	data: data
+})
+
+export const deleteCustomer = (id) => fetch({
+	method: "DELETE",
+	url: `/customers/${id}`
+})

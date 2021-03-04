@@ -29,7 +29,7 @@ function App() {
 			if (status === 401) {
 				store.dispatch({ type: "SET_AUTH_TOKEN", payload: null })
 			} else if (status === 404) {
-				console.log("err404")
+				/// console.log("err404")
 			}
 			throw error
 		}

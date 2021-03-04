@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
-import axios from "axios"
 import serialize from "form-serialize"
 import { AppContext } from "../../../store/App"
+import { createCustomer } from "api/customer"
 import { InputTurkishId } from "../../common"
 import {
 	Modal,
@@ -22,18 +22,15 @@ function CreateCustomer({ editMode = false, props }) {
 	const submit = (event) => {
 		event.preventDefault()
 		setLoading(true)
-		axios.post(
-			"/customers",
+		createCustomer(
 			serialize(event.target, { hash: true })
-		)
-			.then((res) => {
-				store.dispatch({ type: "TOGGLE_CREATE_CUSTOMER_MODAL" })
-				event.target.reset()
-				setLoading(false)
-			})
-			.catch((res) => {
-				setLoading(false)
-			})
+		).then((res) => {
+			store.dispatch({ type: "TOGGLE_CREATE_CUSTOMER_MODAL" })
+			event.target.reset()
+			setLoading(false)
+		}).catch((res) => {
+			setLoading(false)
+		})
 	}
 
 	return (
