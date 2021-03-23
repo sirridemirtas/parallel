@@ -1,4 +1,4 @@
-import { isTurkishId } from "../../../helpers/turkish-id-checker"
+import { isTurkishId } from "../../../helpers"
 import { TextField } from "../../ui"
 
 function InputTurkishId({ props }) {

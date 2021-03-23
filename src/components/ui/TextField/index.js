@@ -11,6 +11,7 @@ function TextField({ className, size, label = false, color = undefined, ...props
 				size,
 				className
 			)}
+			autoComplete="off"
 			{...props}
 		/>
 	)

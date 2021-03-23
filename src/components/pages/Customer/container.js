@@ -1,45 +1,19 @@
-import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { useApi } from "hooks"
+import { conditionalRender } from "helpers"
 import { getCustomer } from "api/customer"
-//import { routes } from "navigation/constants"
-import {
-	//Redirect,
-	useParams
-} from "react-router-dom"
-import {
-	Alert, Spinner
-} from "components/ui"
+import { Alert, Spinner } from "components/ui"
 import Customer from "./component"
 
 function CustomerContainer() {
-	const [customer, setCustomer] = useState(null)
-	const [error, setError] = useState(null)
-	const [isLoaded, setIsLoaded] = useState(false)
-	//const [isDeleted, setIsDeleted] = useState(false)
 	let { customerId } = useParams()
+	const api = useApi(getCustomer(customerId), [customerId])
 
-	useEffect(() => {
-		getCustomer(customerId).then((res) => {
-			setCustomer(res.data)
-			setError(null)
-			setIsLoaded(true)
-		}).catch((err) => {
-			setCustomer(null)
-			setError(err)
-			setIsLoaded(true)
-		})
-	}, [customerId])
-
-	/* if (isDeleted) {
-		return <Redirect to={routes.CUSTOMERS} />
-	} else */ if (error) {
-		return <Alert theme="red"><b>Hata</b>: {error?.message}</Alert>
-	} else if (!isLoaded) {
-		return <Spinner />
-	} else if (!customer) {
-		return <Alert theme="yellow">Müşteri bulunamadı!</Alert>
-	} else {
-		return <Customer data={customer} />
-	}
+	return conditionalRender(api, {
+		success: <Customer data={api[0]} />,
+		error: <Alert theme="red"><b>Hata</b>: {api[2]?.message}</Alert>,
+		loading: <Spinner />
+	})
 }
 
 export default CustomerContainer

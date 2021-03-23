@@ -9,16 +9,15 @@
 	z-index: var(--zindex-sticky); */
 
 	width: 100%;
-	_height: 64px;
 	padding: 0 16px;
 
 	color: var(--text-color);
 	border-bottom: var(--border);
 	background-color: var(--bg-color);
 
-	/* background-color: rgba(255, 255, 255, .56);
+	background-color: rgba(255, 255, 255, .56);
 	-webkit-backdrop-filter: saturate(180%) blur(20px);
-	backdrop-filter: saturate(180%) blur(20px); */
+	backdrop-filter: saturate(180%) blur(20px);/*  */
 }
 
 .appbar > *:not(:last-child) {

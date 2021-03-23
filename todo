@@ -9,3 +9,6 @@ input
 
 appbar
    [x] searchbox
+
+
+her bileşenin loaderı kendi içinde olmalıdır

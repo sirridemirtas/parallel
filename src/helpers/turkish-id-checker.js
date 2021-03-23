@@ -1,4 +1,4 @@
-export const isTurkishId = (a) => {
+export default function isTurkishId(a) {
 	var c = String(a);
 	if (!c.match(/^[0-9]{11}$/)) {
 		return false;

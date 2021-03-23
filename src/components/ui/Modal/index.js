@@ -29,12 +29,17 @@ export const ModalButton = ({ children, ...props }) => (
 function Modal({ children, onOpened, onClosed, visibility = false, ...props }) {
 
 	return (
-		<div className={cn(styles.wrapper, props.className, visibility || styles.hide)}
-			{...props}>
+
+		<div className={cn(
+			styles.wrapper,
+			props.className,
+			visibility || styles.hide
+		)} {...props}>
 			<div className={styles.modal} draggable="true">
 				{children}
 			</div>
-		</div>
+		</div >
+
 	)
 }
 

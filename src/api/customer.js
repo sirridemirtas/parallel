@@ -1,13 +1,9 @@
-import axios from "axios"
-
-const fetch = axios
-
-export const getCustomer = (customerId) => fetch({
+export const getCustomer = (customerId) => ({
 	method: "GET",
 	url: `/customers/${customerId}`
 })
 
-export const getAllCustomers = (params) => fetch({
+export const getAllCustomers = (params) => ({
 	method: "GET",
 	url: `/customers`,
 	params: params
@@ -15,19 +11,19 @@ export const getAllCustomers = (params) => fetch({
 
 export const findCustomers = getAllCustomers
 
-export const createCustomer = (data) => fetch({
+export const createCustomer = (data) => ({
 	method: "POST",
 	url: `/customers`,
 	data: data
 })
 
-export const updateCustomer = (id, data) => fetch({
+export const updateCustomer = (id, data) => ({
 	method: "PUT",
 	url: `/customers/${id}`,
 	data: data
 })
 
-export const deleteCustomer = (id) => fetch({
+export const deleteCustomer = (id) => ({
 	method: "DELETE",
 	url: `/customers/${id}`
 })
