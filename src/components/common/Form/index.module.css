@@ -1,0 +1,20 @@
+.form {
+	display: inline-flex;
+	flex-wrap: wrap;
+	padding: 16px;
+	max-width: 620px;
+	_gap: 8px;
+}
+
+.form > label {
+	padding: 8px;
+	width: calc(50%);
+	line-height: 2em;
+	text-indent: 4px;
+}
+
+@media screen and (max-width:512px) {
+	.form > *:not(textarea) {
+		width: 100%;
+	}
+}

@@ -66,3 +66,7 @@
 }
 
 /*.textField:required {} .textField:valid {}*/
+
+.capitalize {
+	text-transform: capitalize;
+}

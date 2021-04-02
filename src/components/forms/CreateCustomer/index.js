@@ -1,8 +1,10 @@
 import { useContext, useState } from "react"
+import axios from "axios"
 import serialize from "form-serialize"
-import { AppContext } from "../../../store/App"
+import { routes } from "navigation/constants"
+import { AppContext } from "store/App"
 import { createCustomer } from "api/customer"
-import { InputTurkishId } from "../../common"
+import { Capitalize, InputTurkishId } from "components/common"
 import {
 	Modal,
 	ModalActions,
@@ -12,19 +14,22 @@ import {
 	Spinner,
 	TextArea,
 	TextField
-} from "../../ui"
+} from "components/ui"
 import styles from "./index.module.css"
+import { Redirect } from "react-router"
 
 function CreateCustomer({ editMode = false, props }) {
 	const store = useContext(AppContext)
 	const [loading, setLoading] = useState(false)
+	const [data, setData] = useState(false)
 
-	const submit = (event) => {
+	const handleSubmit = (event) => {
 		event.preventDefault()
 		setLoading(true)
-		createCustomer(
+		axios(createCustomer(
 			serialize(event.target, { hash: true })
-		).then((res) => {
+		)).then((res) => {
+			setData(res.data)
 			store.dispatch({ type: "TOGGLE_CREATE_CUSTOMER_MODAL" })
 			event.target.reset()
 			setLoading(false)
@@ -35,14 +40,21 @@ function CreateCustomer({ editMode = false, props }) {
 
 	return (
 		<Modal visibility={store.state.modals.createCustomer} {...props}>
-			<form onSubmit={(event) => submit(event)}>
+			{data && <Redirect to={
+				routes.CUSTOMER.replace(":customerId", data._id)
+			} />}
+			<form onSubmit={handleSubmit}>
 				<ModalTitle>Müşteri Oluştur</ModalTitle>
 				<ModalContent className={styles.form}>
 					<label>Ad
-						<TextField name="name" placeholder="Ad" required autoFocus />
+						<Capitalize >
+							<TextField name="name" placeholder="Ad" required autoFocus />
+						</Capitalize>
 					</label>
 					<label>Soyad
-						<TextField name="surname" placeholder="Soyad" required />
+						<Capitalize >
+							<TextField name="surname" placeholder="Soyad" required />
+						</Capitalize>
 					</label>
 					<label>Telefon
 						<TextField name="phone" type="number" placeholder="Telefon" />

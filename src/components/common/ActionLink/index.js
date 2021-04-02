@@ -6,7 +6,7 @@ export function ActionLinks({ links }) {
 		<div>
 			{links
 				.map((t, i) => <span key={i}>{t}</span>)
-				.reduce((prev, curr) => [prev, " | ", curr])}
+				.reduce((prev, curr) => [prev, <span className={styles.seperator}></span>, curr])}
 		</div>
 	)
 }

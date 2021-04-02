@@ -6,8 +6,19 @@
 	text-decoration: none;
 	font-weight: 500;
 	cursor: pointer;
+	_padding: 4px 0;
 }
 
 .actionLink:hover {
 	text-decoration: underline;
+}
+
+.seperator {
+	display: inline-block;
+	font-size: 1.2em;
+	height: 1em;
+	width: 1px;
+	background-color: rgba(128, 128, 128, .8);
+	margin: 0 8px;
+	vertical-align: top;
 }

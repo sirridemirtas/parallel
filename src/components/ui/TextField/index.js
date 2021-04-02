@@ -1,7 +1,7 @@
 import cn from "classnames"
 import styles from "./index.module.css"
 
-function TextField({ className, size, label = false, color = undefined, ...props }) {
+function TextField({ className, color, label, size, ...props }) {
 	const input = (
 		<input
 			type="text"

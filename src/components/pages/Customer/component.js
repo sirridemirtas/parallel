@@ -1,11 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import cn from "classnames"
-import {
-	Route,
-	Switch,
-	useRouteMatch
-} from "react-router-dom"
+import { Redirect, Route, Switch, useRouteMatch } from "react-router-dom"
 import { routes } from "navigation/constants"
 import {
 	ActionLink,
@@ -18,14 +14,10 @@ import {
 	PageSubtitle,
 	PageTitle
 } from "components/common"
-import {
-	Chip,
-	ConfirmBox,
-	Tabs,
-	TabButton
-} from "components/ui"
+import { Chip, ConfirmBox, Tabs, TabButton } from "components/ui"
 import { Verified } from "components/icons"
 import styles from "./index.module.css"
+import { deleteCustomer } from "api/customer"
 
 const CustomerGroups = () => {
 	return (
@@ -71,10 +63,12 @@ const CustomerAccounts = () => {
 }
 
 function Customer({ data, className, ...props }) {
-	const [deleteCustomer, setDeleteCustomer] = useState(false)
+	const [deleteCustomerModal, setDeleteCustomerModal] = useState(false)
+	const [isDeleted, setIsDeleted] = useState(false)
 
 	return (
 		<div className={cn(styles.customer, className)} {...props}>
+			{isDeleted && <Redirect to={routes.CUSTOMERS} />}
 			<PageTitle>
 				{data.name + " " + data.surname}
 				<Verified className={styles.badge} title="Güvenilir Müşteri" />
@@ -93,25 +87,26 @@ function Customer({ data, className, ...props }) {
 						{
 							text: "Müşteriyi sil",
 							theme: "red",
-							onClick: () => setDeleteCustomer(true)
+							onClick: () => setDeleteCustomerModal(true)
 						}
 					]}
 				/>
 			]} />
 			<ConfirmBox
-				visibility={deleteCustomer}
+				visibility={deleteCustomerModal}
+				title={`${data.name} ${data.surname}`}
 				body="Bu müşteriyi silmek istediğinize emin misiniz?"
 				onConfirm={() => {
-					setDeleteCustomer(false)
-					axios.delete(`/customers/${data._id}`)
+					setDeleteCustomerModal(false)
+					axios(deleteCustomer(data._id))
 						.then((res) => {
-
+							setIsDeleted(true)
 						}).catch((res) => {
-
+							console.log("Müşteri silinirlen bir hata oluştu!")
 						})
 				}}
 				onClosed={() => {
-					setDeleteCustomer(false)
+					setDeleteCustomerModal(false)
 					console.log("müşteri silinMEdi")
 				}}
 			/>

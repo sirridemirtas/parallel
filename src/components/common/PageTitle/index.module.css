@@ -8,3 +8,8 @@
 	min-height: 32px;
 	font-size: 28px;
 }
+
+.pageTitle small {
+	margin-left: 16px;
+	vertical-align: bottom;	
+}

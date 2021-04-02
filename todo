@@ -12,3 +12,11 @@ appbar
 
 
 her bileşenin loaderı kendi içinde olmalıdır
+
+
+forms
+   customer: create, update, delete
+   account: create, update, delete
+   product: create, update, delete
+   payment: create, update, delete
+   order: create, update, delete

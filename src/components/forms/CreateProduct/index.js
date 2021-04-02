@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import axios from "axios"
 import serialize from "form-serialize"
-import { AppContext } from "../../../store/App"
+import { AppContext } from "store/App"
 import {
 	InputGroup,
 	Modal,
@@ -13,7 +13,7 @@ import {
 	TextArea,
 	TextField
 
-} from "../../ui"
+} from "components/ui"
 import styles from "../CreateCustomer/index.module.css"
 
 function CreateProduct() {
@@ -27,15 +27,13 @@ function CreateProduct() {
 		axios.post(
 			"/products",
 			serialize(event.target, { hash: true })
-		)
-			.then((res) => {
-				store.dispatch({ type: "TOGGLE_CREATE_PRODUCT_MODAL" })
-				event.target.reset()
-				setLoading(false)
-			})
-			.catch((res) => {
-				setLoading(false)
-			});
+		).then((res) => {
+			store.dispatch({ type: "TOGGLE_CREATE_PRODUCT_MODAL" })
+			event.target.reset()
+			setLoading(false)
+		}).catch((res) => {
+			setLoading(false)
+		});
 	}
 
 	return (

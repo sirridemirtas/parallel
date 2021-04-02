@@ -43,7 +43,7 @@ function App() {
 	}
 
 	return (
-		!store.state.authToken
+		!store.state.authToken && 0
 			? <Login />
 			: <Layout />
 	)

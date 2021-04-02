@@ -1,10 +1,17 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { ComponentsPreview, Customer, Logo, Navigation, Product } from "components/common"
+import {
+	ComponentsPreview,
+	Customer,
+	Logo,
+	Navigation,
+	Product
+} from "components/common"
 import { routes } from "navigation/constants"
 import { ModalProvider } from "store"
 import Appbar from "./cols/appbar"
 import {
 	CreateCustomer,
+	CreatePayment,
 	CreateProduct,
 	UpdateCustomer
 } from "components/forms"
@@ -35,6 +42,7 @@ function Layout() {
 							</Route>
 						</Switch>
 						<ModalProvider>
+							<CreatePayment />
 							<CreateCustomer />
 							<UpdateCustomer />
 							<CreateProduct />

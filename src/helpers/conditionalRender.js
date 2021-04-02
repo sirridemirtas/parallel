@@ -13,7 +13,7 @@ function conditionalRender(api, components) {
 			components.loading ||
 			<Spinner />
 		)
-	} else if (data.length) {
+	} else if (!data) {
 		return (
 			components.empty ||
 			<Alert theme="yellow">Veri yok!</Alert>

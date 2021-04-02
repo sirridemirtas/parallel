@@ -6,7 +6,7 @@ export const ModalContext = createContext(null)
 export const ModalProvider = ({ ...props }) => {
 	const initialState = {
 		CUSTOMER: {
-			CREATE: true,
+			CREATE: false,
 			UPDATE: false,
 			DELETE: false
 		},
@@ -15,7 +15,12 @@ export const ModalProvider = ({ ...props }) => {
 			UPDATE: false,
 			DELETE: false
 		},
-		EXPENSES: {
+		PAYMENT: {
+			CREATE: true,
+			UPDATE: false,
+			DELETE: false
+		},
+		ACCOUNT: {
 			CREATE: false,
 			UPDATE: false,
 			DELETE: false
