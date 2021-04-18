@@ -3,7 +3,6 @@
 	width: 100%;
 	background-color: var(--bg-color);
 	border-radius: var(--border-radius);
-	box-shadow: var(--shadow);
 	visibility: hidden;
 	
 	box-shadow: var(--gray-5) 0px 0px 0px 1px, var(--gray-5) 0px 4px 11px;

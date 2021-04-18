@@ -16,7 +16,7 @@ export const ModalProvider = ({ ...props }) => {
 			DELETE: false
 		},
 		PAYMENT: {
-			CREATE: true,
+			CREATE: false,
 			UPDATE: false,
 			DELETE: false
 		},

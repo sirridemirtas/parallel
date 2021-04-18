@@ -2,7 +2,7 @@
 	display: inline-flex;
 	align-items: center;
 	padding-right: 16px;
-	padding-left: 8px;
+	padding-left: 4px;
 	border-radius: var(--border-radius);
 	--color: var(--theme);
 	--color-tp: var(--theme-tint-10);
@@ -30,7 +30,7 @@
 	padding: 0;
 	padding-left: 8px;
 	flex: 1;
-	height: 42px;
+	height: 36px;
 	vertical-align: middle;
 	background: transparent;
 	color: inherit;

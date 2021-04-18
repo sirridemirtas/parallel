@@ -22,9 +22,9 @@
 }
 
 .listItem svg {
-	font-size: 24px;
+	font-size: 1.5em;/* 24px; */
 	margin-right: 16px;
-	opacity: .82;
+	_opacity: .82;
 	box-sizing: content-box;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .compact .listItem svg {
-	font-size: 22px;
+	font-size: 1.32em;/* 22px; */
 	margin-right: 12px;
 }
 

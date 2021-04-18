@@ -21,7 +21,8 @@ function CreatePayment() {
 					element: <TextField name="amount" placeholder="Tutar" type="number" required />
 				}, {
 					label: "Ödeme Tarihi",
-					element: <TextField name="createdAt" type="date" required />
+					element: <TextField name="createdAt" type="date" required
+						value={new Date().toISOString().slice(0, 10)} />
 				},
 			]
 		}} />

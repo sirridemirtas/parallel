@@ -11,7 +11,7 @@
 	--color: var(--theme);
 	--color-tp: var(--theme-tint-10);
 	color: var(--text-color);
-	background-color: var(--bg-color);
+	_background-color: var(--bg-color);
 	font-size: inherit;
 	z-index:var(--zindex-dropdown);
 }

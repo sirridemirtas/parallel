@@ -161,21 +161,19 @@ svg {
 .hide{display:none}
 
 /* scrollbar */
-/* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
 	width: 10px;
 	height: 10px;
 }
-/* Track */
+
 ::-webkit-scrollbar-track {
 	background: rgba(128, 128, 128, .1);
 }
-/* Handle */
 ::-webkit-scrollbar-thumb {
 	background: rgba(128, 128, 128, .3);
 	border-radius: 10px;
 }
-/* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
 	background: rgba(128, 128, 128, .4);
-}
+} */

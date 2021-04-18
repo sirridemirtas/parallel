@@ -89,9 +89,10 @@ body.dark {
 
 	/** Background **/
 	--bg-color: #1f1b24;
-	--shadow: 0 4px 5px 0 rgba(128,128,128,0.14),
+	/* --shadow: 0 4px 5px 0 rgba(128,128,128,0.14),
 		0 1px 10px 0 rgba(128,128,128,0.12),
-		0 2px 4px -1px rgba(128,128,128,0.2);
+		0 2px 4px -1px rgba(128,128,128,0.2); */
+	--shadow: var(--gray-5) 0px 0px 0px 1px, var(--gray-5) 0px 4px 11px;
 	--shadow-dropdown:0 2px 4px -1px rgba(128,128,128,.2),
 		0 4px 5px 0 rgba(128,128,128,.14),
 		0 1px 10px 0 rgba(128,128,128,.12);
